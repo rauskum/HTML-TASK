@@ -1,0 +1,22 @@
+<html>
+<head>
+<script>
+function changeColor() {
+  // get the value of the textbox
+  let color = document.getElementById("color_input").value;
+  // get the element with id "color_div"
+  let div = document.getElementById("color_div");
+  // set the background color of the div to the input value
+  div.style.backgroundColor = color;
+}
+</script>
+</head>
+<body>
+<h1>Change the color of the div</h1>
+<p>Enter a color name or a hex code in the textbox and click the button.</p>
+<input type="text" id="color_input" placeholder="Enter a color">
+<button onclick="changeColor()">Change color</button>
+<div id="color_div" style="width: 200px; height: 200px; border: 1px solid black;">
+</div>
+</body>
+</html>

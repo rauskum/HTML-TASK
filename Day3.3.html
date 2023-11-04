@@ -1,0 +1,92 @@
+<html>
+<head>
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .input {
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+
+  .button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    margin: 5px;
+  }
+
+  .output {
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+    text-align: right;
+    margin-top: 10px;
+    border: 1px solid black;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <input id="num1" class="input" type="number" placeholder="Enter first number">
+  <input id="num2" class="input" type="number" placeholder="Enter second number">
+  <div>
+    <button id="add" class="button" onclick="add()">+</button>
+    <button id="sub" class="button" onclick="sub()">-</button>
+    <button id="mul" class="button" onclick="mul()">*</button>
+    <button id="div" class="button" onclick="div()">/</button>
+  </div>
+  <div id="result" class="output"></div>
+</div>
+<script>
+  // Get the input and output elements
+  var num1 = document.getElementById("num1");
+  var num2 = document.getElementById("num2");
+  var result = document.getElementById("result");
+
+  // Define the functions for each operation
+  function add() {
+    // Get the values from the input elements
+    var a = parseFloat(num1.value);
+    var b = parseFloat(num2.value);
+    // Perform the addition and display the result
+    var c = a + b;
+    result.innerHTML = c;
+  }
+
+  function sub() {
+    // Get the values from the input elements
+    var a = parseFloat(num1.value);
+    var b = parseFloat(num2.value);
+    // Perform the subtraction and display the result
+    var c = a - b;
+    result.innerHTML = c;
+  }
+
+  function mul() {
+    // Get the values from the input elements
+    var a = parseFloat(num1.value);
+    var b = parseFloat(num2.value);
+    // Perform the multiplication and display the result
+    var c = a * b;
+    result.innerHTML = c;
+  }
+
+  function div() {
+    // Get the values from the input elements
+    var a = parseFloat(num1.value);
+    var b = parseFloat(num2.value);
+    // Perform the division and display the result
+    var c = a / b;
+    result.innerHTML = c;
+  }
+</script>
+</body>
+</html>

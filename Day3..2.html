@@ -1,0 +1,65 @@
+// Get the para tag element by its id
+var para = document.getElementById("para");
+
+// Get the buttons by their ids
+var increaseButton = document.getElementById("increase");
+var decreaseButton = document.getElementById("decrease");
+
+// Define a function to change the font size by a given amount
+function changeFontSize(amount) {
+  // Get the current font size of the para tag
+  var currentSize = parseInt(window.getComputedStyle(para).fontSize);
+
+  // Add the amount to the current size
+  var newSize = currentSize + amount;
+
+  // Set the new font size to the para tag
+  para.style.fontSize = newSize + "px";
+}
+
+// Add event listeners to the buttons to call the changeFontSize function
+increaseButton.addEventListener("click", function() {
+  changeFontSize(2); // Increase the font size by 2 pixels
+});
+
+decreaseButton.addEventListener("click", function() {
+  changeFontSize(-2); // Decrease the font size by 2 pixels
+});
+
+import React, { Component } from 'react';
+import FontSizeChanger from 'react-font-size-changer';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="app">
+        <FontSizeChanger
+          targets={['#target .content']} // The CSS selector of the element whose font size to change
+          onChange={(element, newValue, oldValue) => {
+            console.log(element, newValue, oldValue);
+          }}
+          options={{
+            stepSize: 2, // The amount of font size change in pixels
+            range: 3 // The number of times the font size can be changed
+          }}
+          customButtons={{
+            up: <span style={{'fontSize': '36px'}}>A</span>, // The content of the increase button
+            down: <span style={{'fontSize': '20px'}}>A</span>, // The content of the decrease button
+            style: {
+              backgroundColor: 'red',
+              color: 'white',
+              WebkitBoxSizing: 'border-box',
+              WebkitBorderRadius: '5px',
+              width: '60px'
+            },
+            buttonsMargin: 10 // The margin between the buttons in pixels
+          }}
+        />
+        <div id="target">
+          <p className="title">This is the title of my target text</p>
+          <p className="content">This is the content of my target text</p>
+        </div>
+      </div>
+    );
+  }
+}
